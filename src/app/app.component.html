@@ -13,8 +13,8 @@
           </div>
         </form>
       </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center" v-if="jsonToForm()">
-        <form class="w-100">
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <form class="w-100" *ngIf="jsonToForm() else errorMsg">
           <ng-container *ngFor="let input of jsonToForm().keys; let i = index">
   
             <div class="form-group" *ngIf="input == InputType.LABLE">
@@ -42,6 +42,9 @@
   
           </ng-container>
         </form>
+        <ng-template #errorMsg>
+          <p class="w-100">Invalid JSON format.</p>
+        </ng-template>
       </div>
     </div>
   </div>

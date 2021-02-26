@@ -24,13 +24,18 @@ export class AppComponent {
   }
 
   jsonToForm(): any {
-    if(this.jsonInput.trim() && this.jsonInput.length) {
-      let value = JSON.parse(this.jsonInput);
-      return {
-        keys: Object.keys(value) as any,
-        values: Object.values(value) as any
-      };
+    try {
+      if(this.jsonInput.trim() && this.jsonInput.length) {
+        let value = JSON.parse(this.jsonInput);
+        return {
+          keys: Object.keys(value) as any,
+          values: Object.values(value) as any
+        };
+      }
+      return false;
+    } catch (error) {
+      console.log('error ==>', error)
+      return false
     }
-    return false;
   }
 }
