@@ -1,0 +1,7 @@
+export enum InputType {
+    INPUT = "INPUT",
+    SELECT_BOX = "SELECT_BOX",
+    LABLE = "LABLE",
+    RADIO_BUTTON = "RADIO_BUTTON",
+    BUTTON_SUBMIT = "BUTTON_SUBMIT"
+}
